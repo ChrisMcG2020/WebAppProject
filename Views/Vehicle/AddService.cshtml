@@ -1,0 +1,76 @@
+@model ServiceViewModel
+
+    <!--CSS bootstrap stylesheet-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+      <!--Breadcrumb Menu-->
+    <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item"><a asp-controller="Service" asp-action="Index">Service Index</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Add Service</li>
+    </ol>
+</nav>
+     
+<h3 class="mt-4 mb-4">Add Service</h3>
+
+<!--Add Service Form-->
+<form asp-action="AddService">
+
+    <!--Hide the Id for editing-->
+    <input type="hidden"asp-for="VehicleId" class="form-control"/>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="row">
+        <div class="form-group col-5">
+            <label asp-for="StaffMember" class="control-label">Staff Member</label>
+             <input asp-for="StaffMember" class="form-control"/>
+            <span asp-validation-for="StaffMember" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-5">
+            <label asp-for="DateofService" class="control-label">Date of Service</label>
+            <input asp-for="DateofService" class="form-control"/>
+            <span asp-validation-for="DateofService" class="text-danger"></span>
+        </div>
+     </div>
+
+     <div class="row">
+        <div class="form-group col-5">
+            <label asp-for="Mileage" class="control-label">Mileage</label>
+            <input asp-for="Mileage" class="form-control"/>
+            <span asp-validation-for="Mileage" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-5">
+            <label asp-for="Cost" class="control-label">Cost</label>
+            <input asp-for="Cost" class="form-control"/>
+            <span asp-validation-for="Cost" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ServiceProvided" class="control-label">Service Carried Out</label>
+        <textarea class="form-control" id="Textarea1" rows="3" asp-for="ServiceProvided"></textarea>
+        <span asp-validation-for="ServiceProvided" class="text-danger"></span>
+    </div>
+
+    <!-- Post submit details with icons-->
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus "></span> Add Service</button>
+        <a class="btn btn-secondary btn-sm" asp-action="Details"><span class="glyphicon glyphicon-remove "></span>> Cancel</a>
+    </div>
+</form>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+

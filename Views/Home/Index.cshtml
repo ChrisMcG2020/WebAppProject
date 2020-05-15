@@ -1,0 +1,88 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+    <!--CSS bootstrap stylesheet-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+ <!-- Page Content -->
+   <div class="container">
+
+    <!-- Heading  -->
+    <div class="row align-items-center my-5">
+      <div class="col-lg-7"><br>
+        <img class="img-fluid rounded mb-4 mb-lg-0" src="https://www.vehicleconsulting.com/wp-content/uploads/2018/08/Fleet-management-new-first-time-dummies-newbie-part-time-full-role-guide-tips-advice-1039x719.png" alt="">
+      </div>
+      
+      <!-- Company info-->
+      <div class="col-lg-5">
+        <h1>Vehicle Fleet Ltd.</h1>
+        <p>Welcome to Vehicle Fleet Ltd. We specalise in managing vehicle
+           records and their service. We are here to assist you with your buisness and personal vehicle fleet</p>
+        
+        <div class="card" width="18rem;">
+          <h5 class="card-header" style="color: #007bff;">Contact Us</h5>
+          <div class="card-body">
+            <p class="card-text"></p>
+          <p><i class="fas fa-phone-square" style="color: #007bff;"></i> 0749125554<br></p>
+         <p><i class="fas fa-envelope-square" style="color: #007bff;"></i> 1 Upper Main St, Letterkenny, Co.Donegal<br></p>
+           <p><i class="fas fa-at" style="color: #007bff;"></i> sales@vehiclefleet.com</a></p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- Company outline-->
+    <div class="card text-white bg-secondary my-5 py-4 text-center">
+      <div class="card-body">
+        <p class="text-white m-0">The #1 Vehicle Fleet and Service Management Company in the North-West</p>
+      </div>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="card-body">
+              <!-- Title of Card with Icon beside it matching colour scheme-->
+            <h2 class="card-title">Vehicle Fleet  <i class="fas fa-car" style="color: #007bff;"></i></h2>
+            <p class="card-text">Browse the vehicle fleet details and add, edit or delete vehicles</p>
+          </div>
+          <div class="card-footer">
+            <a asp-controller="Vehicle" asp-action="Index" class="btn btn-primary btn-sm">Vehicle Fleet</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          
+          <div class="card-body">
+            <h2 class="card-title">Service Info  <i class="fas fa-wrench" style="color: #007bff;"></i></h2>
+            <p class="card-text">Browse the service information and add, edit or delete service information</p>
+          </div>
+          <div class="card-footer">
+            <a asp-controller="Service" asp-action="Index" class="btn btn-primary btn-sm">Service Info</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          
+          <div class="card-body">
+            <h2 class="card-title">About Us  <i class="fas fa-address-card" style="color: #007bff;"></i></h2>
+            <p class="card-text">View our company information and contact us</p>
+          </div>
+          <div class="card-footer">
+            <a asp-action="Privacy" class="btn btn-primary btn-sm">Company info</a>
+          </div>
+        </div>
+      </div>
+      
+
+    </div>
+    
+  </div>
+

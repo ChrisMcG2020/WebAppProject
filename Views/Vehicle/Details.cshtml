@@ -1,0 +1,76 @@
+@model Vehicle
+
+     <!--CSS bootstrap stylesheet-->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+    <!--Breadcrumb Menu-->
+     <nav aria-label="breadcrumb">
+         <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Vehicle Index</li>
+         </ol>
+    </nav>
+
+<!--Table with the Car Details and Picture-->
+
+<h3 class="mt=4 mb-4">Vehicle Details</h3>
+  
+  <div class="row">
+    <div class="col-md-3">
+  <dl>
+
+
+    <dd><b>Make</b></dd>
+    <dd><b>Model</b></dd>
+    <dd><b>Year</b></dd>
+    <dd><b>Registration</b></dd>
+    <dd><b>Fuel Type</b></dd>
+    <dd><b>Body</b></dd>
+    <dd><b>Transmission</b></dd>
+    <dd><b>No of Doors</b></dd>
+ 
+      </dl>
+        </div>  
+       
+  
+        <div class="col-md-3">
+          <dl>
+            <dd>@Model.Make</dd>
+            <dd>@Model.Model</dd>
+            <dd>@Model.DateOfRegistration.Year</dd>
+            <dd>@Model.RegNumber</dd>
+            <dd>@Model.FuelType</dd>
+            <dd>@Model.BodyType</dd>
+            <dd>@Model.Transmission</dd>
+            <dd>@Model.NoOfDoors</dd> 
+          </dl>
+        </div>
+ 
+
+
+        <div class="col-md-6 services-section">
+            <img class="img-fluid" src="@Model.PhotoURL">
+        </div>
+    </div>
+
+  <!-- Link details with icons-->
+    <dl class="row">
+                <dt class="col-sm-12">
+                       <div class="mb-2">
+          <a asp-action="Edit" asp-route-id=@Model.Id class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit "></span> Edit Vehicle</a>
+          <a asp-action="Delete" asp-route-id=@Model.Id class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash "></span> Delete Vehicle</a>
+          </div>
+                </dt>
+                
+                
+            </dl>
+
+  <!--Service History section which displays the _VehicleServiceHistory partial-->
+    <h4 class="mt=4 mb-4">Service History</h4>
+    <div class="mb-2">
+      <a asp-action="AddService" asp-route-id=@Model.Id class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-plus"></i> Add Service</a>
+    </div>
+  
+    <partial name="_VehicleServiceHistory" />
+
+    

@@ -1,0 +1,42 @@
+@model Vehicle
+
+    <!--CSS bootstrap stylesheet-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!--Table to show the Service details-->
+
+<table class="table">
+<thead>
+<tr>        
+     
+    <th>Serviced On</th>
+    <th>Serviced By</th>
+    <th>Mileage</th>
+    <th>Cost</th>
+    <th>Description of work done</th>
+    <th>Actions</th>   
+    </th>
+          
+
+</tr>
+</thead>
+<tbody>
+@foreach(var s in Model.Services) {
+    <tr>              
+        
+        <td>@s.DateofService.ToShortDateString()</td>
+        <td>@s.StaffMember</td>
+        <td>@s.Mileage</td>
+        <td>@s.Cost</td>
+        <td>@s.ServiceProvided</td>
+
+ @*  Some icons to view,edit and delete the information *@
+              <td>
+           <a asp-controller="Service" asp-action="Delete" asp-route-id=@s.Id data-toggle="tooltip" title="Delete"/>
+        <span  class="glyphicon glyphicon-trash"></span>
+              </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

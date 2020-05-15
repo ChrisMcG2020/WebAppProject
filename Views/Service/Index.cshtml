@@ -1,0 +1,55 @@
+@model IList<Service>
+   
+   @*Breadcrumb Menu*@
+   <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Service Index</li>
+    </ol>
+</nav>
+
+    <!--CSS bootstrap stylesheet-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<h2>Service History</h2>
+
+ <!--Implement our View Bag, this will add a hyperlink to the columh heading to enable user to click and change the order to the defined order-->
+<table class="table">
+    <thead>
+        <tr>
+            <th><a asp-action="Index" asp-route-sortOrder="@ViewBag.DateSortParm">Date</a></th>
+            <th><a asp-action="Index" asp-route-sortOrder="@ViewBag.RegSortParm">Vehicle Reg</a></th>
+            <th>Servived By</th>
+            <th>Mileage</th>
+            <th>Cost</th>
+            <th>Description<th>
+            <th>Actions</th>
+            </tr>
+    </thead>
+    <tbody>
+      
+      
+        @foreach(var v in Model) {
+            <tr>
+               @*Add the html links to display the order*@
+                <td>@Html.DisplayFor(modelItem => v.DateofService)</td>
+                <td>@Html.DisplayFor(modelItem => v.Vehicle.RegNumber)</td>
+                <td>@v.StaffMember</td>
+                <td>@v.Mileage</td>
+                <td>@v.Cost</td>
+                <td>@v.ServiceProvided</td>
+
+      <td>
+               @*  Some icons to view,edit and delete the information and use bootstrap tooltip so 
+               when cursor hovers it shows user the text of the icon *@
+              <td>
+                <a asp-controller="Vehicle" asp-action="Details" asp-route-id=@v.Id data-toggle="tooltip" title="View Vehicle" />
+                <span class=" glyphicon glyphicon-eye-open"></span>
+                 <a asp-controller="Vehicle" asp-action="AddService" asp-route-id=@v.Id data-toggle="tooltip" title="Add Service For This Vehicle" />
+                <span class=" glyphicon glyphicon-plus"></span>
+       
+              </td>
+            </tr>
+        }
+      </tbody>
+    </table>
