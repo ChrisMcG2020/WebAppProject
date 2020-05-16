@@ -1,8 +1,4 @@
-# COM741 Assignment 2019-20
 
-## Last Updated 22-03-2020
-
-This template should be used to complete Assignment 1 to create the Vehicle Management System
 
 ## Project Structure
 The solution contains three projects
